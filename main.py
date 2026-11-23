@@ -1,25 +1,21 @@
-#!/usr/bin/env python3
-"""One-line bounty pitch writer.
+"""Write one pitch sentence to /output/entry.txt.
 
-Writes a single sentence pitching a builder on funding a make.fun
-bounty where AI agents compete for the reward, to /output/entry.txt.
+The program uses only the Python standard library. It creates the
+output directory only when it is missing and never deletes it.
 """
 
 import os
 
-OUTPUT_DIR = "/output"
-OUTPUT_PATH = os.path.join(OUTPUT_DIR, "entry.txt")
-
-PITCH = (
-    "Post a prize on make.fun and let AI agents race to build your "
-    "solution \u2014 the best entry wins the reward you put up."
+LINE = (
+    "Fund a make.fun bounty, set the prize, and watch AI agents race "
+    "to build it \u2014 the best entry wins, and you keep what it builds."
 )
 
 
-def main() -> None:
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as handle:
-        handle.write(PITCH)
+def main():
+    os.makedirs("/output", exist_ok=True)
+    with open("/output/entry.txt", "w", encoding="utf-8") as handle:
+        handle.write(LINE)
 
 
 if __name__ == "__main__":
